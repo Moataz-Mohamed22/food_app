@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_app/config/theme/colors.dart';
 import 'package:food_app/feature/home/tabs/cart/presentation/ui/cart_screen.dart';
 import 'package:food_app/feature/home/tabs/menu/presentation/pages/menu_screen.dart';
-import 'package:food_app/feature/home/tabs/profile/presentation/pages/profile_screen.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -16,7 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> tabs = [
     MenuScreen(),
-    ProfileScreen(),
     CartScreen(),
   ];
 
@@ -42,10 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant_menu),
             label: 'Menu',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),

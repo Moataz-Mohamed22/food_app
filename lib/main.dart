@@ -8,9 +8,7 @@ import 'package:food_app/feature/auth/presentation/pages/register_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:food_app/feature/home/presentation/ui/home_screen.dart';
 import 'package:food_app/feature/home/tabs/cart/presentation/ui/cart_screen.dart';
-import 'package:food_app/feature/home/tabs/menu/presentation/pages/menu_item.dart';
 import 'package:food_app/feature/home/tabs/menu/presentation/pages/menu_screen.dart';
-import 'package:food_app/feature/home/tabs/profile/presentation/pages/profile_screen.dart';
 import 'core/di/di.dart';
 import 'core/firebase/firebase_options.dart';
 import 'feature/home/tabs/cart/presentation/manager/cart_cubit.dart';
@@ -48,13 +46,12 @@ class MyApp extends StatelessWidget {
               AppRoutes.loginRoute :(context)=>LoginScreen(),
               AppRoutes.registerRoute :(context)=>RegisterScreen(),
               AppRoutes.home :(context)=>HomeScreen(),
-              AppRoutes.profile :(context)=>ProfileScreen(),
               AppRoutes.cart :(context)=>CartScreen(),
               AppRoutes.menu :(context)=>MenuScreen(),
 
 
             },
-            initialRoute: AppRoutes.home,
+            initialRoute: AppRoutes.loginRoute,
             theme: AppTheme.appTheme,
 
           );
