@@ -4,6 +4,7 @@ import 'package:food_app/config/theme/app_styles.dart';
 import 'package:food_app/config/theme/colors.dart';
 import 'package:food_app/feature/home/tabs/menu/presentation/widget/special_deal_container.dart';
 import '../../data/models/meal_model.dart';
+import 'menu_item.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -35,7 +36,15 @@ class MenuScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final meal = meals[index];
                   return GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => MenuItem(mealModel: meal),
+                        ),
+                      );
+                    },
+
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.r),
