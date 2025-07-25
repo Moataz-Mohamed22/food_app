@@ -5,6 +5,7 @@ abstract class AppRoutes {
   static const String profile = "/profile";
   static const String cart = "/cart";
   static const String menu = "/menu";
+  static const String menuItem = "/menuItem";
 
 
 }
