@@ -1,0 +1,40 @@
+name: Flutter CI with Firebase
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.32.8"  
+          channel: stable
+
+      - name: Flutter Version
+        run: flutter --version
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Analyze Code
+        run: flutter analyze || true
+
+      - name: Run Tests
+        run: flutter test
+
+      - name: Build APK (Optional)
+        run: flutter build apk --debug
+
+      # Optional: Build Web
+      # - name: Build Web
+      #   run: flutter build web
