@@ -66,16 +66,41 @@ class CartScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),
                   color: Colors.grey.shade200,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("Total:", style: AppStyles.bold25Black),
-                      Text("\$${totalPrice.toStringAsFixed(2)}", style: AppStyles.bold25Black),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Total:", style: AppStyles.bold25Black),
+                          Text("\$${totalPrice.toStringAsFixed(2)}", style: AppStyles.bold25Black),
+                        ],
+                      ),
+                      SizedBox(height: 10.h),
+                      ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text("Checkout Success"),
+                              backgroundColor: Colors.green,
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 32.w),
+                          backgroundColor: Colors.green,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                        ),
+                        child: Text("Checkout", style: AppStyles.semiBold17White),
+                      ),
                     ],
                   ),
                 ),
               ],
             );
+            ;
           }
 
           return Center(child: CircularProgressIndicator());

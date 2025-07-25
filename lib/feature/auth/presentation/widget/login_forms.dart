@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_app/config/routing/routing_extensions.dart';
 import 'package:food_app/core/helpers/dialogue_utils.dart';
 import 'package:food_app/core/helpers/validators.dart';
+import 'package:food_app/feature/home/presentation/ui/home_screen.dart';
 import '../../../../config/theme/app_styles.dart';
 import '../../../../config/theme/colors.dart';
 import '../../../../core/components/custom_button.dart';
@@ -26,6 +28,8 @@ class LoginForms extends StatelessWidget {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text('Login Success')));
+          context.pushNamed("/home" );
+
         }
       },
       child: BlocBuilder<AuthCubit, AuthState>(
@@ -69,6 +73,7 @@ class LoginForms extends StatelessWidget {
                               cubit.login(
                                 cubit.emailController.text.trim(),
                                 cubit.passwordController.text.trim(),
+
                               );
                             }
                           },
